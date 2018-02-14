@@ -11,7 +11,7 @@ from threading import Thread
 from gtts import gTTS
 from googletrans import Translator
 cl = LINETCR.LINE()
-cl.login(token="EpGv4gGi3E5ek9EGbzpa.ScFjCUWZY2oU7YzWFlMgcG.LKNYXa0mZr/bzzKqhoG2zNgRDSBytgZagxgcQej9uLA=")
+cl.login(token="Ep5Km4RQ79qFpKLWeLMa.ScFjCUWZY2oU7YzWFlMgcG.jq0OhtZfA7PZLAx/lWgj0kdRTp3D2y0DjfaLgyYU7Qs=")
 cl.loginResult()
 
 #ki1 = LINETCR.LINE()
@@ -310,8 +310,8 @@ autoinvite = []
 autoleaveroom = []
 targets = []
 mid = cl.getProfile().mid
-Bots = ["ub027c972ec33cb63aeef26707cb9860a",mid]
-self = ["ub027c972ec33cb63aeef26707cb9860a",mid]
+Bots = ["ub027c972ec33cb63aeef26707cb9860a",Amid1]
+self = ["ub027c972ec33cb63aeef26707cb9860a",Amid1]
 admin = "ub027c972ec33cb63aeef26707cb9860a"
 admsa = "ub027c972ec33cb63aeef26707cb9860a"
 owner = "ub027c972ec33cb63aeef26707cb9860a"
@@ -3710,14 +3710,14 @@ http://line.me/ti/p/09T2waRE7l
             elif msg.text in ["Sp","sp","Speed","speed"]:
                 cl.sendText(msg.to, "ประมวลผลความเร็ว....")
                 start = time.time()
-                time.sleep(0.001)
+                time.sleep(0.00001)
                 elapsed_time = time.time() - start
                 cl.sendText(msg.to, "%sseconds" % (elapsed_time))    
                 print "[Command]Speed palsu executed"
             elif msg.text in ["Bs","bs","bot speed","Bot speed","Bot Speed"]:
                 ki1.sendText(msg.to, "ประมวลผลความเร็ว....")
                 start = time.time()
-                time.sleep(0.001)
+                time.sleep(0.00001)
                 elapsed_time = time.time() - start
                 ki1.sendText(msg.to, "%sseconds" % (elapsed_time))    
                 ki2.sendText(msg.to, "%sseconds" % (elapsed_time))    
@@ -3816,14 +3816,14 @@ http://line.me/ti/p/09T2waRE7l
                      pass
 
 #-----------------------------------------------
-            elif msg.text in ["Url","ลิ้ง"]:
+            elif msg.text in ["Url","ขอลิ้ง"]:
                 if msg.toType == 2:
                     x = cl.getGroup(msg.to)
                     if x.preventJoinByTicket == True:
                         x.preventJoinByTicket = False
                         cl.updateGroup(x)
                     gurl = cl.reissueGroupTicket(msg.to)
-                    cl.sendText(msg.to,"[SELFBO PHET HACK BOT]\n\nline://ti/g/" + gurl)
+                    cl.sendText(msg.to,"[ลิ้งพร้อมใช้งาน]\n\nline://ti/g/" + gurl)
                 else:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Can not be used outside the group")
