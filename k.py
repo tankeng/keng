@@ -11,7 +11,7 @@ from threading import Thread
 from gtts import gTTS
 from googletrans import Translator
 cl = LINETCR.LINE()
-cl.login(token="EqarnCLvpAFLLvn0LUja.ScFjCUWZY2oU7YzWFlMgcG.jQ9VtaVrdqVbPMMdEgAm7+kywn8sYUANqi736PRrz6Y=")
+cl.login(token="Eq38izetHejqsNOKKp8a.ScFjCUWZY2oU7YzWFlMgcG.kuoCvQMRM5zK0nh6mPR6zhn6ijk7doUOK1UmwDVebkg=")
 cl.loginResult()
 
 #ki1 = LINETCR.LINE()
@@ -53,6 +53,8 @@ cl.loginResult()
 #ki10 = LINETCR.LINE()
 #ki10.login(token="EoQW0fWuribDJDJRBTCa.XIBZSHhwVEi2szZJfJwo/G.0Vu2NC0IMsGRgSttKg/vSJz9ngGwx/lGkaqdUqt1GgM=")
 #ki10.loginResult()
+
+start_runtime = datetime.now()
 
 print "login success"
 reload(sys)
@@ -310,13 +312,13 @@ autoinvite = []
 autoleaveroom = []
 targets = []
 mid = cl.getProfile().mid
-Bots = ["u2f43da207b7463d14c0566db830531a5",mid]
-self = ["u2f43da207b7463d14c0566db830531a5",mid]
-admin = "u2f43da207b7463d14c0566db830531a5"
-admsa = "u2f43da207b7463d14c0566db830531a5"
-owner = "u2f43da207b7463d14c0566db830531a5"
-adminMID = "u2f43da207b7463d14c0566db830531a5"
-Creator="u2f43da207b7463d14c0566db830531a5"
+Bots = ["ub027c972ec33cb63aeef26707cb9860a",mid]
+self = ["ub027c972ec33cb63aeef26707cb9860a",mid]
+admin = "ub027c972ec33cb63aeef26707cb9860a"
+admsa = "ub027c972ec33cb63aeef26707cb9860a"
+owner = "ub027c972ec33cb63aeef26707cb9860a"
+adminMID = "ub027c972ec33cb63aeef26707cb9860a"
+Creator="ub027c972ec33cb63aeef26707cb9860a"
 wait = {
     "alwayRead":False,
     "detectMention":True,    
@@ -3247,7 +3249,16 @@ http://line.me/ti/p/09T2waRE7l
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
 
-#========================================
+#==================================================
+#RUNTIME--------------------------------------
+            elif msg.text.lower() == "runtime":
+                cl.sendText(msg.to, "Wait....")
+                cl.sendText(msg.to,str(datetime.now() - start_runtime)[:-7].split(":")[0]+" Hour "+str(datetime.now() - start_runtime)[:-7].split(":")[1]+" Minute "+str(datetime.now() - start_runtime)[:-7].split(":")[2]+" second")
+#----------------------------------------------
+#RUNTIME--------------------------------------
+            elif msg.text.lower() == "ออน":
+                cl.sendText(msg.to, "Wait....")
+                cl.sendText(msg.to,str(datetime.now() - start_runtime)[:-7].split(":")[0]+" ชั่วโมง "+str(datetime.now() - start_runtime)[:-7].split(":")[1]+" นาที "+str(datetime.now() - start_runtime)[:-7].split(":")[2]+" วินาที")
 #========================================
             elif msg.text in ["เชคค่า"]:
                 print "Setting pick up..."
@@ -4337,7 +4348,7 @@ http://line.me/ti/p/09T2waRE7l
                     msg.text = txt
                     msg.contentMetadata = {u'MENTION':json.dumps({"MENTIONEES":d})}
                     cl.sendMessage(msg)
-            elif "รวม" in msg.text:
+            elif "รderhytวม" in msg.text:
                 group = cl.getGroup(msg.to)
                 k = len(group.members)//100
                 for j in xrange(k+1):
@@ -5354,10 +5365,10 @@ http://line.me/ti/p/09T2waRE7l
                 A = hasil.text
                 A = A.encode('utf-8')
                 cl.sendText(msg.to, A)
-            elif "Tr-ar" in msg.text:
-                isi = msg.text.replace("Tr-ar ","")
+            elif "Tr-th " in msg.text:
+                isi = msg.text.replace("Tr-th ","")
                 translator = Translator()
-                hasil = translator.translate(isi, dest='ar')
+                hasil = translator.translate(isi, dest='th')
                 A = hasil.text
                 A = A.encode('utf-8')
                 cl.sendText(msg.to, A)
@@ -5708,11 +5719,11 @@ http://line.me/ti/p/09T2waRE7l
                 zodiak = data["data"]["zodiak"]
                 cl.sendText(msg.to,"============ I N F O R M A S I ============\n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n============ I N F O R M A S I ============")
 
-            elif msg.text in ["Kalender","Time","Waktu"]:
+            elif msg.text in ["Kalender","Time","เวลา"]:
                 timeNow = datetime.now()
                 timeHours = datetime.strftime(timeNow,"(%H:%M)")
                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
-                hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                hari = ["วันอาทิต์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"]
                 bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
                 inihari = datetime.today()
                 hr = inihari.strftime('%A')
@@ -5720,8 +5731,8 @@ http://line.me/ti/p/09T2waRE7l
                 for i in range(len(day)):
                     if hr == day[i]: hasil = hari[i]
                 for k in range(0, len(bulan)):
-                    if bln == str(k): blan = bulan[k-1]
-                rst = hasil + ", " + inihari.strftime('%d') + " - " + blan + " - " + inihari.strftime('%Y') + "\nJam : [ " + inihari.strftime('%H:%M:%S') + " ]"
+                    if bln == str(k): bln = bulan[k-1]
+                rst = hasil + ", " + inihari.strftime('%d') + " - " + bln + " - " + inihari.strftime('%Y') + "\nเวลาขณะนี้ : [ " + inihari.strftime('%H:%M:%S') + " ]"
                 cl.sendText(msg.to, rst)
 #==============================================================================#
             elif msg.text.lower() == 'ifconfig':
@@ -5884,7 +5895,7 @@ http://line.me/ti/p/09T2waRE7l
                     except Exception as error:
                         print error
 
-            elif "มอง" in msg.text:
+            elif "มrj,อง" in msg.text:
                 group = cl.getGroup(msg.to)
                 k = len(group.members)//100
                 for j in xrange(k+1):
@@ -6269,9 +6280,9 @@ http://line.me/ti/p/09T2waRE7l
                 cnt.text = "PHET TAG DONE : " + str(jml) +  " Members"
                 cnt.to = msg.to
                 cl.sendMessage(cnt)
-            elif msg.text in ["@cdfb@"]:
-                        cl.sendText(msg.to,"จัgdrhfดให้")
-            elif ")kldsvkdl" == msg.text.lower():
+            elif msg.text in ["@@"]:
+                        cl.sendText(msg.to,"จัดให้")
+            elif "." == msg.text.lower():
                 if msg.to in wait2['readPoint']:
                         try:
                             del wait2['readPoint'][msg.to]
@@ -6316,7 +6327,7 @@ http://line.me/ti/p/09T2waRE7l
                     cl.sendText(msg.to, "ปิดการอ่านอัตโนมัต\nDelete reading point:\n" + datetime.now().strftime('%H:%M:%S'))
 
                     
-            elif "JKJLckvclv" == msg.text.lower():
+            elif ".." == msg.text.lower():
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                              cl.sendText(msg.to, "SELFBOT PHET HACK BOT\n\nLurkers:\nNone")
@@ -6372,10 +6383,10 @@ http://line.me/ti/p/09T2waRE7l
 																
         #if op.type == 15:
             #if wait["Notifed"] == True:
-               # if op.param2 in Bots:
-                   # return
-               # cl.sendText(op.param1,cl.getContact(op.param2).displayName + "\n􀜁􀄄􏿿 เเล้วพบใหม่นะ 􀜁􀄄􏿿")
-                #print "MEMBER OUT GROUP"		
+                #if op.param2 in Bots:
+                    #return
+                #cl.sendText(op.param1,cl.getContact(op.param2).displayName + "\n􀜁􀄄􏿿 เเล้วพบใหม่นะ 􀜁􀄄􏿿")
+               # print "MEMBER OUT GROUP"		
 
         if op.type == 17:
           if wait["Notifed"] == True:
